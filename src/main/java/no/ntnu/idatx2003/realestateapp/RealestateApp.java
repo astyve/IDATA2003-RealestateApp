@@ -337,13 +337,15 @@ public class RealestateApp {
    * development and testing.
    */
   private void fillRegisterWithProperties() {
-    this.properties.addProperty(new Property(1445, "Gloppen", 77, 631, "", 1017.6, "Jens Olsen"));
+    // TODO: Bug here: Parameter "name" cannot be empty
+    this.properties.addProperty(new Property(1445, "Gloppen", 77, 631, "Solvik", 1017.6, "Jens Olsen"));
     this.properties.addProperty(
         new Property(1445, "Gloppen", 77, 131, "Syningom", 661.3, "Nicolay Madsen"));
     this.properties.addProperty(
         new Property(1445, "Gloppen", 75, 19, "Fugletun", 650.6, "Evilyn Jensen"));
+    // TODO: Bug here: Parameter "name" cannot be empty
     this.properties.addProperty(
-        new Property(1445, "Gloppen", 74, 188, "", 1457.2, "Karl Ove Bråten"));
+        new Property(1445, "Gloppen", 74, 188, "Flatberg", 1457.2, "Karl Ove Bråten"));
     this.properties.addProperty(
         new Property(1445, "Gloppen", 69, 47, "Høiberg", 1339.4, "Elsa Indregård"));
   }

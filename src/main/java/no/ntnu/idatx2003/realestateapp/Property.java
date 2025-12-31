@@ -11,7 +11,8 @@ package no.ntnu.idatx2003.realestateapp;
  */
 public class Property {
   private final int municipalityNumber; //A number between 101 (Halden) and 5054 (Indre Fosen)
-  private final String municipalityName = null;
+  // TODO: Bug here: municipalityName should not be set here. It should be set in the constructor only.
+  private final String municipalityName;
   private final int lotNumber;
   private final int sectionNumber;
   private final String name;
@@ -31,7 +32,29 @@ public class Property {
   public Property(int municipalityNumber, String municipalityName,
                   int lotNumber, int sectionNumber,
                   String name, double area) {
+    // TODO: Bug here: Missing guard condition for all the parameters
+    // Guard conditions (a better solution would be to use set-methods)
+    if (municipalityName == null || municipalityName.isEmpty()) {
+      throw new IllegalArgumentException("municipalityName cannot be null or empty");
+    }
+    if (municipalityName.isBlank()) {
+      throw new IllegalArgumentException("municipalityName cannot be blank");
+    }
+    if (area < 0) {
+      throw new IllegalArgumentException("area cannot be negative");
+    }
+    if (name == null || name.isEmpty()) {
+      throw new IllegalArgumentException("name cannot be null or empty");
+    }
+    if (name.isBlank()) {
+      throw new IllegalArgumentException("name cannot be blank");
+    }
+    if (lotNumber < 0) {
+      throw new IllegalArgumentException("lotNumber cannot be negative");
+    }
+
     this.municipalityNumber = municipalityNumber;
+    this.municipalityName = municipalityName;
     this.lotNumber = lotNumber;
     this.sectionNumber = sectionNumber;
     this.name = name;
@@ -104,8 +127,8 @@ public class Property {
    * @return the name of the property.
    */
   public String getName() {
-    String name = "Test";
-    return name;
+    // TODO: Bug here: The local variable "name" was returned, not the field.
+    return this.name;
   }
 
   /**

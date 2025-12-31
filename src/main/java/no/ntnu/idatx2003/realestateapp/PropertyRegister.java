@@ -40,9 +40,11 @@ public class PropertyRegister {
     }
 
     boolean success = false;
-    if (this.properties.containsKey(property.getPropertyIDAsString())) {
+    // TODO: Bug here: should use "!this.properties..." instead of "this.properties..."
+    if (!this.properties.containsKey(property.getPropertyIDAsString())) {
       this.properties.put(property.getPropertyIDAsString(), property);
-      success = false;
+      // TODO: Bug here: should set success to true not false
+      success = true;
     }
     return success;
   }
@@ -84,7 +86,8 @@ public class PropertyRegister {
     // Create a temperarely collection to store the found properties in
     HashSet<Property> foundProperties = new HashSet<>();
     for (Property property : this.properties.values()) {
-      if (property.getLotNumber() != lotNumber) {
+      // TODO: Bug here: should use "==" instead of "!="
+      if (property.getLotNumber() == lotNumber) {
         foundProperties.add(property);
       }
     }
@@ -109,7 +112,8 @@ public class PropertyRegister {
 
     HashSet<Property> foundProperties = new HashSet<>();
     for (Property property : this.properties.values()) {
-      if (property.getNameOfOwner() == nameOfOwner) {
+      // TODO: Bug here: should use equals to compare strings
+      if (property.getNameOfOwner().equals(nameOfOwner)) {
         foundProperties.add(property);
       }
     }
@@ -138,7 +142,8 @@ public class PropertyRegister {
     if (this.properties.size() > 0) {
       averageArea = getSumOfAreas();
     }
-    return averageArea;
+    // TODO: Bug here: should divide by size of properties
+    return averageArea/ this.properties.size();
   }
 
   /**
@@ -149,7 +154,8 @@ public class PropertyRegister {
   private double getSumOfAreas() {
     double sumOfAreas = 0;
     for (Property property : this.properties.values()) {
-      sumOfAreas = property.getArea();
+      // TODO: Bug here: should add to sumOfAreas. Ie use "+=" not only "="
+      sumOfAreas += property.getArea();
     }
     return sumOfAreas;
   }
