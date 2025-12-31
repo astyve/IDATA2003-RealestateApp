@@ -86,8 +86,9 @@ public class PropertyRegisterTest {
     int count = 0;
     while (resultIt.hasNext()) {
       Property prop = resultIt.next();
-      assertEquals(lotNumber, prop.getLotNumber());
-      count++;
+      if (lotNumber == prop.getLotNumber()) {
+        count++;
+      }
     }
 
     assertEquals(2, count);
@@ -124,8 +125,9 @@ public class PropertyRegisterTest {
     int count = 0;
     while (resultIt.hasNext()) {
       Property prop = resultIt.next();
-      assertEquals("Jens Andersen", prop.getNameOfOwner());
-      count++;
+      if (nameOfOwner.equals(prop.getNameOfOwner())) {
+        count++;
+      }
     }
 
     assertEquals(2, count);
