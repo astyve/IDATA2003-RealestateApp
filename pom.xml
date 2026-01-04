@@ -9,37 +9,18 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.release>21</maven.compiler.release>
+        <!-- Set Java version to 25 (LTS pr 2026-01-01)-->
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- Add dependency to JUnit 5 API -->
+    <!-- Add dependency to JUnit 6 API -->
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.11.4</version>
+            <version>6.0.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <!--
-                 To make sure that the JUnit 5 tests are being run, we need to use
-                 maven-compiler-plugin v3.13.0 or later, and maven-surefire-plugin v3.2.5 or later
-            -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.3</version>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
