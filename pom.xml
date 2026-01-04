@@ -9,17 +9,17 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <!-- Set Java version to 25 (LTS pr 2026-01-01)-->
+        <!-- Set Java version to 21 (Codegrade latest)-->
         <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- Add dependency to JUnit 6 API -->
+    <!-- Add dependency to JUnit 5 API (Codegrade) -->
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>6.0.1</version>
+            <version>5.13.4</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
